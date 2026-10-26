@@ -25,6 +25,12 @@ class TestExactIdMatches:
         assert caps.supports_tool_choice is False
         assert caps.requires_reasoning_content_roundtrip is True
 
+    def test_deepseek_v4_1_flash_qwen_cloud_id_rejects_tool_choice(self):
+        """Qwen Cloud MaaS serves ``deepseek-v4.1-flash`` (dot in version)."""
+        caps = get_capabilities("deepseek-v4.1-flash")
+        assert caps.supports_tool_choice is False
+        assert caps.requires_reasoning_content_roundtrip is True
+
     def test_deepseek_flash_alias_rejects_tool_choice(self):
         """``deepseek-flash`` is what the model picker offers for V4.1 Flash.
 

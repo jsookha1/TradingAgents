@@ -56,6 +56,24 @@ _QWEN_MODELS: dict[str, list[ModelOption]] = {
 }
 
 
+# Qwen Cloud MaaS (ap-southeast-1.maas.qwencloudapi.com): OpenAI-compatible
+# catalog verified against /v1/models. DeepSeek IDs are first-class here;
+# stock ``deepseek`` still points at api.deepseek.com + DEEPSEEK_API_KEY.
+_QWEN_CLOUD_MODELS: dict[str, list[ModelOption]] = {
+    "quick": [
+        ("DeepSeek V4.1 Flash - Qwen Cloud (recommended)", "deepseek-v4.1-flash"),
+        ("Qwen 3.8 Flash", "qwen3.8-flash"),
+        ("Custom model ID", "custom"),
+    ],
+    "deep": [
+        ("DeepSeek V4 Pro - Qwen Cloud (recommended)", "deepseek-v4-pro"),
+        ("DeepSeek V4.1 Flash - same as quick", "deepseek-v4.1-flash"),
+        ("Qwen 3.8 Max", "qwen3.8-max"),
+        ("Custom model ID", "custom"),
+    ],
+}
+
+
 # Shared model list for MiniMax's global and CN endpoints (same IDs).
 # Full official lineup per platform.minimax.io/docs/api-reference/text-openai-api.
 # M3 carries a 1M-token context window; the M2.x line is 204,800 tokens.
@@ -168,6 +186,7 @@ MODEL_OPTIONS: ProviderModeOptions = {
     # (dashscope) endpoints, so the two provider keys share one model list.
     "qwen": _QWEN_MODELS,
     "qwen-cn": _QWEN_MODELS,
+    "qwen-cloud": _QWEN_CLOUD_MODELS,
     # GLM: Z.AI (international) and BigModel (China) host the same model
     # IDs; the two provider keys share one model list.
     "glm": _GLM_MODELS,

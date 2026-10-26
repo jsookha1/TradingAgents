@@ -386,6 +386,11 @@ def _llm_provider_table() -> list[tuple[str, str, str | None]]:
         ("xAI", "xai", "https://api.x.ai/v1"),
         ("DeepSeek", "deepseek", "https://api.deepseek.com"),
         ("Qwen", "qwen", "https://dashscope-intl.aliyuncs.com/compatible-mode/v1"),
+        # Qwen Cloud MaaS (ap-southeast-1): DeepSeek/Qwen IDs via DASHSCOPE_API_KEY.
+        # Distinct from dashscope-intl; pick this when your smoke-tested host is
+        # *.maas.qwencloudapi.com (not dashscope-intl.aliyuncs.com).
+        ("Qwen Cloud (MaaS)", "qwen-cloud",
+         "https://ap-southeast-1.maas.qwencloudapi.com/compatible-mode/v1"),
         # Z.AI international, the platform ZHIPU_API_KEY belongs to; the CN
         # platform is the separate glm-cn key, chosen in the region prompt.
         ("GLM", "glm", "https://api.z.ai/api/paas/v4/"),

@@ -31,6 +31,8 @@ def test_registry_membership():
     ("deepseek", "https://api.deepseek.com", DeepSeekChatOpenAI, False),
     ("qwen", "https://dashscope-intl.aliyuncs.com/compatible-mode/v1", NormalizedChatOpenAI, False),
     ("qwen-cn", "https://dashscope.aliyuncs.com/compatible-mode/v1", NormalizedChatOpenAI, False),
+    ("qwen-cloud", "https://ap-southeast-1.maas.qwencloudapi.com/compatible-mode/v1",
+     DeepSeekChatOpenAI, False),
     ("glm", "https://api.z.ai/api/paas/v4/", NormalizedChatOpenAI, False),
     ("glm-cn", "https://open.bigmodel.cn/api/paas/v4/", NormalizedChatOpenAI, False),
     ("minimax", "https://api.minimax.io/v1", MinimaxChatOpenAI, False),
