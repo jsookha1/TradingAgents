@@ -266,6 +266,13 @@ OPENAI_COMPATIBLE_PROVIDERS: dict[str, ProviderSpec] = {
     "deepseek":   ProviderSpec(base_url="https://api.deepseek.com", chat_class=DeepSeekChatOpenAI),
     "qwen":       ProviderSpec(base_url="https://dashscope-intl.aliyuncs.com/compatible-mode/v1"),
     "qwen-cn":    ProviderSpec(base_url="https://dashscope.aliyuncs.com/compatible-mode/v1"),
+    # Qwen Cloud MaaS (OpenAI-compatible): same DASHSCOPE_API_KEY as intl DashScope,
+    # different host. Serves DeepSeek + Qwen IDs; DeepSeekChatOpenAI keeps
+    # reasoning_content round-trip for DeepSeek thinking models on this relay.
+    "qwen-cloud": ProviderSpec(
+        base_url="https://ap-southeast-1.maas.qwencloudapi.com/compatible-mode/v1",
+        chat_class=DeepSeekChatOpenAI,
+    ),
     "glm":        ProviderSpec(base_url="https://api.z.ai/api/paas/v4/"),
     "glm-cn":     ProviderSpec(base_url="https://open.bigmodel.cn/api/paas/v4/"),
     "minimax":    ProviderSpec(base_url="https://api.minimax.io/v1", chat_class=MinimaxChatOpenAI),
